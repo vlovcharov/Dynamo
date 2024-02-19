@@ -1,0 +1,72 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-image: url('../crypto.jpg');
+    background-color: #203354;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: aliceblue;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px 0;
+}
+
+section {
+    margin: 50px 0 0 20px;
+    border: 3px solid aliceblue;
+    border-radius: 8px;
+    width: 50%;
+    padding: 20px;
+}
+
+.action-p {
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+input[type=submit], .custom-file-upload {
+    display: block;
+    background-color: aliceblue;
+    border: none;
+    color: #5a5a5a;
+    line-height: 2.5;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: inherit;
+    text-align: center;
+    font-weight: bold;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#custom-file-upload-name {
+    margin-bottom: 15px;
+}

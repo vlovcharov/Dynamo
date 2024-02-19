@@ -1,0 +1,50 @@
+﻿@using WebInterface.Models
+@model PortfolioStatus
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <h1>Check your crypto results</h1>
+    </header>
+    <section>
+        <p class="action-p"><i>STEP 1</i> - Please upload a file with the crypto you own:</p>
+        <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Index">
+            <label for="file-upload" class="custom-file-upload">
+                <i class="fa fa-cloud-upload"></i> Browse
+            </label>
+            <input id="file-upload" type="file" name="fileForUpload" />
+            <p id="custom-file-upload-name"></p>
+            <input type="submit" value="Upload" />
+            <p>@Html.Raw(ViewBag.Message)</p>
+        </form>
+    </section>
+    <section>
+        @if (Model != null)
+        {
+            <article>
+                <p class="action-p"><i>STEP 2</i> - Your info:</p>
+                <p><b>Initial portfolio value in USD:</b> @Model.InitialValue</p>
+                <p><b>Current value in USD:</b> @Model.CurrentValue</p>
+                <p><b>Change in percents:</b> @String.Format("{0:F3}", @Model.ValueChangeInPercents)</p>
+                <p><b>Last time updated:</b> @Model.Timestamp</p>
+                <p><b>Details:</b></p>
+                <p></p>
+                @foreach (var asset in Model.PortfolioCryptoAssets)
+                {
+                    <p>@asset.Name : @String.Format("{0:F5}", @asset.ChangeInPercents)  %</p>
+                }
+            </article>
+        }
+    </section>
+</body>
+</html>
