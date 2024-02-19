@@ -29,16 +29,15 @@
         </form>
     </section>
     <section>
+        <p class="action-p"><i>STEP 2</i> - Your info:</p>
         @if (Model != null)
-        {
+        {            
+            <p><b>Initial portfolio value in USD:</b> @Model.InitialValue</p>
+            <p><b>Current value in USD:</b> @Model.CurrentValue</p>
+            <p><b>Change in percents:</b> @String.Format("{0:F3}", @Model.ValueChangeInPercents)</p>
+            <p><b>Last time updated:</b> @Model.Timestamp</p>            
             <article>
-                <p class="action-p"><i>STEP 2</i> - Your info:</p>
-                <p><b>Initial portfolio value in USD:</b> @Model.InitialValue</p>
-                <p><b>Current value in USD:</b> @Model.CurrentValue</p>
-                <p><b>Change in percents:</b> @String.Format("{0:F3}", @Model.ValueChangeInPercents)</p>
-                <p><b>Last time updated:</b> @Model.Timestamp</p>
                 <p><b>Details:</b></p>
-                <p></p>
                 @foreach (var asset in Model.PortfolioCryptoAssets)
                 {
                     <p>@asset.Name : @String.Format("{0:F5}", @asset.ChangeInPercents)  %</p>
